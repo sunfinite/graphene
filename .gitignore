@@ -1,0 +1,4 @@
+data/*
+FETCH_HISTORY
+__pycache__/*
+*.pyc
