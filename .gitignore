@@ -2,3 +2,5 @@ data/*
 FETCH_HISTORY
 __pycache__/*
 *.pyc
+*.swp
+.DS_STORE
