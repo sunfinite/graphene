@@ -5,9 +5,9 @@ We are trying to test block propagation using graphene with data from real Bitco
 ### First Results*
 
 #### Comparision of different bandwidth saving techniques
+![Number of missing transactions](n_missing.png)
 ![Comparision of different bandwidth saving techniques](mempool.png)
 
-![Number of missing transactions](n_missing.png)
 
 \* I'm still tuning different parameters. While the actual numbers may change as testing progresses, the trend should hold. Numbers for Compact and Xtreme Thinblocks are estimates and not pulled from actual messages.
 
