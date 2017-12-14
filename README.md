@@ -3,8 +3,17 @@
 We are trying to test block propagation using graphene with data from real Bitcoin blocks while following the actual wire protocol of Bitcoin. A new message type called MSG_GRAPHENE has been added and a new transaction packet called GraphenePacket has been added which can be serialized and deserialized. This packet includes the bloom filter and the IBLT that are needed as part of graphene.
 
 ### First Results*
+
+#### Comparision of different bandwidth saving techniques
 ![Comparision of different bandwidth saving techniques](mempool.png)
 
+![Number of missing transactions](n_missing.png)
+
+\* I'm still tuning different parameters. While the actual numbers may change as testing progresses, the trend should hold. Numbers for Compact and Xtreme Thinblocks are estimates and not pulled from actual messages.
+
+### TODO
+
+* Unrecoverable transactions.
 
 ### Running stuff
 
@@ -59,6 +68,7 @@ n_cells 236
 2017-12-14 17:38:23,890 - root - INFO - Number of bits in the bloom filter: 14924
 ```
 
+The simulation scripts can be run over one block at a time. ``driver.py`` runs the scripts for all blocks in the ``data`` directory for mempool values ``[0.999, 0.99, 0.95, 0.9, 0.75]``. It remembers if it has processed a block before so it can be safely run as many times as needed.
 
 ```bash
 ~/graphene $ python driver.py
@@ -69,6 +79,15 @@ Computing values for block 499327
 2017-12-14 17:48:24,891 - root - DEBUG - Socket bound to localhost:4242
 ```
 
+Graphs can be generated as follows:
 ```bash
-~/graphene $ python graph.py
+~/graphene $ python graph.py 
+[0.999, 0.99, 0.95, 0.9, 0.75]
+[1.6027018229166667, 20.1650390625, 107.61090959821429, 183.95354352678572, 443.32975260416669]
+[0.999, 0.99, 0.95, 0.9, 0.75]
+[3.2353515625, 4.822591145833333, 11.998465401785714, 20.963588169642858, 47.535807291666664]
+[0.999, 0.99, 0.95, 0.9, 0.75]
+[17.49609375, 17.49609375, 17.615792410714285, 17.615792410714285, 17.49609375]
+[0.999, 0.99, 0.95, 0.9, 0.75]
+[24.948893229166668, 24.948893229166668, 25.120396205357142, 25.120396205357142, 24.948893229166668]
 ```
