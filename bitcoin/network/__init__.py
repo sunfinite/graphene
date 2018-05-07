@@ -14,7 +14,7 @@ import traceback
 import time
 
 
-root = logging.getLogger()
+root = logging.getLogger('network')
 root.setLevel(logging.DEBUG)
 
 ch = logging.StreamHandler(sys.stdout)
